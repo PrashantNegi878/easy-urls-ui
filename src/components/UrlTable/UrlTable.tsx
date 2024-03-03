@@ -41,8 +41,8 @@ export default function UrlTable({data}:IUrlTableProps) {
                     <tr>
                         <th scope='col' className='px-6 py-3 w-4/12'>Full URL</th>
                         <th scope='col' className='px-6 py-3 w-4/12'>Short URL</th>
-                        <th scope='col' className='px-6 py-3 sm:px-3'>Clicks</th>
-                        <th scope='col' className='px-6 py-3 sm:px-3'>Copy</th>
+                        <th scope='col' className='px-2 py-3 lg:px-6'>Clicks</th>
+                        <th scope='col' className='px-2 py-3 lg:px-6'>Copy</th>
                     </tr>
                 </thead>
                 <tbody>

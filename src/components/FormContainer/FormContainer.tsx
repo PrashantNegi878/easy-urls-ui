@@ -38,7 +38,7 @@ export default function FormContainer({updateReloadState}:IFormContainerProps) {
                   easyurls/
                 </div>
                 <input
-                  className="block w-full p-4 ps-32 sm:ps-24 text-sm text-gray-900 border border-gray-600 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-00"
+                  className="block w-full p-4 ps-24  sm:ps-24 lg:ps-32 text-sm text-gray-900 border border-gray-600 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-00"
                   type="text"
                   placeholder="Add your link here"
                   required
