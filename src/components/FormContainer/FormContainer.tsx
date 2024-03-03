@@ -23,7 +23,7 @@ export default function FormContainer({updateReloadState}:IFormContainerProps) {
   return (
     <div className="container mx-auto p-2">
       <div className="bg-banner my-8 rounded-xl bg-cover bg-center">
-        <div className="w-full h-full rounded-xl p-20 backdrop-brightness-75">
+        <div className="w-full h-full rounded-xl py-20 px-5 lg:px-20 md:px-10 sm:px-5 backdrop-brightness-75">
           <h2 className="text-white text-4xl text-center pb-4">EASY URLS</h2>
           <p className="text-white text-center text-xl pb-2 font-extralight">
             Paste your link to shorten it
@@ -38,7 +38,7 @@ export default function FormContainer({updateReloadState}:IFormContainerProps) {
                   easyurls/
                 </div>
                 <input
-                  className="block w-full p-4 ps-32 text-sm text-gray-900 border border-gray-600 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-00"
+                  className="block w-full p-4 ps-32 sm:ps-24 text-sm text-gray-900 border border-gray-600 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-00"
                   type="text"
                   placeholder="Add your link here"
                   required

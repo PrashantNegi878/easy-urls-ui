@@ -24,7 +24,7 @@ export default function UrlTable({data}:IUrlTableProps) {
                 <td className="px-6 py-3 break-words">
                     <Link to={item.redirectUrl} target="_blank" rel="noreferrer noopener">{item.redirectUrl}</Link>
                 </td>
-                <td className="px-6 py-3">
+                <td className="px-6 py-3 break-words">
                     <Link to={`${serverUrl}/${item.shortId}`} target="_blank" rel="noreferrer noopener">{`${serverUrl}/${item.shortId}`}</Link>
                 </td>
                 <td className="px-6 py-3">{item.visitHistory.length}</td>
@@ -39,10 +39,10 @@ export default function UrlTable({data}:IUrlTableProps) {
             <table className='w-full table-fixed text-sm text-left rtl:text-right text-gray-500'>
                 <thead className='text-md uppercase text-gray-100 bg-gray-700'>
                     <tr>
-                        <th scope='col' className='px-6 py-3 w-6/12'>Full URL</th>
-                        <th scope='col' className='px-6 py-3 w-3/12'>Short URL</th>
-                        <th scope='col' className='px-6 py-3'>Clicks</th>
-                        <th scope='col' className='px-6 py-3'>Copy</th>
+                        <th scope='col' className='px-6 py-3 w-4/12'>Full URL</th>
+                        <th scope='col' className='px-6 py-3 w-4/12'>Short URL</th>
+                        <th scope='col' className='px-6 py-3 sm:px-3'>Clicks</th>
+                        <th scope='col' className='px-6 py-3 sm:px-3'>Copy</th>
                     </tr>
                 </thead>
                 <tbody>
