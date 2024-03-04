@@ -76,7 +76,7 @@ export default function FormContainer({updateReloadState}:IFormContainerProps) {
           {`${serverUrl}/${result.shortId}`}
           </p>
           </Link> 
-          <div className="m-auto my-4 hover:cursor-pointer text-white text-center w-1/5 border rounded-lg hover:text-yellow-400" onClick={()=>copyToClipboard(`${serverUrl}/${result.shortId}`)}>COPY</div>
+          <div className="m-auto my-4 hover:cursor-pointer text-white text-center w-1/5 border rounded-lg hover:text-yellow-400" onClick={()=>copyToClipboard(result.shortId)}>COPY</div>
           </>
   }
 }
