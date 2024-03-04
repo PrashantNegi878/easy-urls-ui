@@ -14,3 +14,12 @@ export const COPY_SVG =
     />
   </svg>
 ;
+
+export const copyToClipboard =async(url:string)=>{
+  try {
+      await navigator.clipboard.writeText(`${serverUrl}/${url}`)
+      alert(`URL Copied : ${serverUrl}/${url}`)
+  } catch (error) {
+      console.log(error);
+  }
+}

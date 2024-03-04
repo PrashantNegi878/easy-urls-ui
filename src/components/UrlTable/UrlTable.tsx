@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { UrlData } from "../../interface/urlData"
-import { COPY_SVG, serverUrl } from "../../helpers/constants";
+import { COPY_SVG, copyToClipboard, serverUrl } from "../../helpers/constants";
 
 interface IUrlTableProps{
     data:UrlData[];
@@ -8,15 +8,7 @@ interface IUrlTableProps{
 
 export default function UrlTable({data}:IUrlTableProps) {
 
-    const copyToClipboard =async(url:string)=>{
-        try {
-            await navigator.clipboard.writeText(`${serverUrl}/${url}`)
-            alert(`URL Copied : ${serverUrl}/${url}`)
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
+
 
     const renderTableData = ()=>{
         return data.map((item:UrlData)=>
