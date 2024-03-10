@@ -16,6 +16,7 @@ export default function Main() {
     const response=await axios.get(`${serverUrl}/analytics`);
     console.log(response);
     return response.data;
+    console.log(reload);
   };
 
   const { isPending, error, data } = useQuery({queryKey:['tableData'],queryFn:fetchTableData});
