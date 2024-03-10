@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
-import { UrlData } from "../../interface/urlData"
-import { COPY_SVG, copyToClipboard, serverUrl } from "../../helpers/constants";
+import { UrlData } from "../../../interface/urlData"
+import { COPY_SVG, copyToClipboard, serverUrl } from "../../../helpers/constants";
 
 interface IUrlTableProps{
-    data:UrlData[];
+    data:UrlData[] | undefined;
 }
 
 export default function UrlTable({data}:IUrlTableProps) {
 
-
-
     const renderTableData = ()=>{
-        return data.map((item:UrlData)=>
+        if (data)return data.map((item:UrlData)=>
             <tr key={item._id} className="border-b text-white bg-gray-800 hover:bg-gray-500">
                 <td className="px-6 py-3 break-words">
                     <Link to={item.redirectUrl} target="_blank" rel="noreferrer noopener">{item.redirectUrl}</Link>
