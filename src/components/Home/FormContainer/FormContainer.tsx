@@ -1,32 +1,38 @@
 import axios from "axios";
 import { useState } from "react";
-import { copyToClipboard, serverUrl } from "../../helpers/constants";
+import { copyToClipboard, serverUrl } from "../../../helpers/constants";
 import { Link } from "react-router-dom";
 
-interface IFormContainerProps{
-  updateReloadState:()=>void
+interface IFormContainerProps {
+  updateReloadState: () => void;
 }
 
-interface IResponse{
-  shortId:string | undefined,
-  message?:string
+interface IResponse {
+  shortId: string | undefined;
+  message?: string;
 }
 
-export default function FormContainer({updateReloadState}:IFormContainerProps) {
+export default function FormContainer({
+  updateReloadState,
+}: IFormContainerProps) {
   const [url, setUrl] = useState("");
-  const [result,setResult]=useState<IResponse>({shortId:undefined});
+  const [result, setResult] = useState<IResponse>({ shortId: undefined });
+  const token = localStorage.getItem("eurl_token");
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res=await axios.post(serverUrl, { url });
+      const res = await axios.post(serverUrl, { url },config);
       setResult(res.data);
       setUrl("");
       updateReloadState();
     } catch (err) {
       console.log(err);
     }
-  }; 
+  };
 
   return (
     <div className="container mx-auto p-2">
@@ -70,13 +76,26 @@ export default function FormContainer({updateReloadState}:IFormContainerProps) {
     </div>
   );
 
-  function getShortUrlHTML(){
-    return <> <Link to={`${serverUrl}/${result.shortId}`} target="_blank" rel="noreferrer noopener">
-        <p className="text-white text-center text-xl pt-8 pb-2 font-extralight">
-          {`${serverUrl}/${result.shortId}`}
+  function getShortUrlHTML() {
+    return (
+      <>
+        {" "}
+        <Link
+          to={`${serverUrl}/${result.shortId}`}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <p className="text-white text-center text-xl pt-8 pb-2 font-extralight">
+            {`${serverUrl}/${result.shortId}`}
           </p>
-          </Link> 
-          <div className="m-auto my-4 hover:cursor-pointer text-white text-center w-1/5 border rounded-lg hover:text-yellow-400" onClick={()=>copyToClipboard(result.shortId)}>COPY</div>
-          </>
+        </Link>
+        <div
+          className="m-auto my-4 hover:cursor-pointer text-white text-center w-1/5 border rounded-lg hover:text-yellow-400"
+          onClick={() => copyToClipboard(result.shortId)}
+        >
+          COPY
+        </div>
+      </>
+    );
   }
 }
