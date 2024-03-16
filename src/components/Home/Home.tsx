@@ -27,19 +27,20 @@ export default function Home() {
     console.log(reload);
   };
 
-  const { isPending, error, data } = useQuery({
+  const { isPending, error, data,refetch } = useQuery({
     queryKey: ["tableData"],
-    queryFn: fetchTableData,
+    queryFn: fetchTableData,enabled:false
   });
 
   useEffect(()=>{
     if (!token) navigate("/login");
+    refetch();
   },[token,navigate]);
 
   return (
     <div>
-      <FormContainer updateReloadState={updateReloadState} />
-      {data && <UrlTable data={data} />}
+      <FormContainer updateReloadState={updateReloadState} fetchAllUrls={refetch} />
+      {data && <UrlTable data={data}/>}
       {isPending && <TableSplash />}
       {error && <TableError />}
     </div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 interface IFormContainerProps {
   updateReloadState: () => void;
+  fetchAllUrls: () => void;
 }
 
 interface IResponse {
@@ -13,7 +14,7 @@ interface IResponse {
 }
 
 export default function FormContainer({
-  updateReloadState,
+  updateReloadState, fetchAllUrls
 }: IFormContainerProps) {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState<IResponse>({ shortId: undefined });
@@ -29,6 +30,7 @@ export default function FormContainer({
       setResult(res.data);
       setUrl("");
       updateReloadState();
+      fetchAllUrls();
     } catch (err) {
       console.log(err);
     }
